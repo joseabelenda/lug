@@ -1,6 +1,7 @@
 **/*.iml
 **/.ivy
 **/.classpath
+**/.DS_Store
 **/.project
 **/.sass-cache
 **/.settings
