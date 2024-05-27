@@ -1,10 +1,10 @@
 [
 	{
-		"externalReferenceCode": "LUG_OPTION",
+		"externalReferenceCode": "LUG",
 		"facetable": false,
 		"fieldType": "select",
-		"key": "plan-option",
-		"name": "Plan Option",
+		"key": "plan",
+		"name": "Plan",
 		"required": true,
 		"skuContributor": true,
 		"values": [
