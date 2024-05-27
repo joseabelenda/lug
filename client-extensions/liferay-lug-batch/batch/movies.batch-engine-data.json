@@ -1,0 +1,84 @@
+{
+	"actions": {
+		"create": {
+			"href": "http://localhost:8080/o/c/movies/",
+			"method": "POST"
+		},
+		"createBatch": {
+			"href": "http://localhost:8080/o/c/movies/batch",
+			"method": "POST"
+		},
+		"deleteBatch": {
+			"href": "http://localhost:8080/o/c/movies/batch",
+			"method": "DELETE"
+		},
+		"updateBatch": {
+			"href": "http://localhost:8080/o/c/movies/batch",
+			"method": "PUT"
+		}
+	},
+	"configuration": {
+		"className": "com.liferay.object.rest.dto.v1_0.ObjectEntry",
+		"companyId": 0,
+		"parameters": {
+			"containsHeaders": "true",
+			"createStrategy": "UPSERT",
+			"onErrorFail": "false",
+			"taskItemDelegateName": "C_Movie",
+			"updateStrategy": "UPDATE"
+		},
+		"taskItemDelegateName": "C_Movie",
+		"userId": 0,
+		"version": "v1.0"
+	},
+	"items": [
+		{
+			"director": "Steven Spielberg",
+			"duration": 127,
+			"plot": "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.",
+			"posterUrl": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_SX300.jpg",
+			"r_accountMovie_accountEntryERC": "BASIC",
+			"score": 8.2,
+			"stars": "Sam Neill, Laura Dern, Jeff Goldblum",
+			"title": "Jurassic Park",
+			"writer": "Michael Crichton, David Koepp",
+			"year": 1993
+		},
+		{
+			"director": "Steven Spielberg",
+			"duration": 169,
+			"plot_i18n": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
+			"posterUrl": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
+			"r_accountMovie_accountEntryERC": "BASIC",
+			"score": 8.6,
+			"stars": "Tom Hanks, Matt Damon, Tom Sizemore",
+			"title": "Saving Private Ryan",
+			"writer": "Robert Rodat",
+			"year": 1998
+		},
+		{
+			"director": "Ridley Scott",
+			"duration": 155,
+			"plot": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+			"posterUrl": "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+			"r_accountMovie_accountEntryERC": "PREMIUM",
+			"score": 8.5,
+			"stars": "Russell Crowe, Joaquin Phoenix, Connie Nielsen",
+			"title": "Gladiator",
+			"writer": "David Franzoni, John Logan, William Nicholson",
+			"year": 2000
+		},
+		{
+			"director": "Joseph Kosinski",
+			"duration": 130,
+			"plot": "After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN's elite graduates on a mission that demands the ultimate sacrifice from those chosen to fly it.",
+			"posterUrl": "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_SX300.jpg",
+			"r_accountMovie_accountEntryERC": "PREMIUM",
+			"score": 8.3,
+			"stars": "Tom Cruise, Jennifer Connelly, Miles Teller",
+			"title": "Top Gun: Maverick",
+			"writer": "Jim Cash, Jack Epps Jr., Peter Craig",
+			"year": 2022
+		}
+	]	
+}
