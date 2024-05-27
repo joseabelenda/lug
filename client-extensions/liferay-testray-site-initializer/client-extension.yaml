@@ -2,7 +2,7 @@ liferay-testray-site-initializer:
     name: LUG Site Initializer
     oAuthApplicationHeadlessServer: lug-site-initializer-oauth-application-headless-server
     siteExternalReferenceCode: LUG
-    siteName: LUG
+    siteName: RayStream
     type: siteInitializer
 liferay-testray-site-initializer-oauth-application-headless-server:
     .serviceAddress: localhost:8080

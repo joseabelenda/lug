@@ -1,0 +1,129 @@
+{
+	"pageElement": {
+		"pageElements": [
+			{
+				"definition": {
+					"gutters": true,
+					"indexed": true,
+					"modulesPerRow": 3,
+					"numberOfColumns": 3,
+					"reverseOrder": false,
+					"rowViewports": [
+						{
+							"id": "landscapeMobile",
+							"rowViewportDefinition": {
+								"modulesPerRow": 1
+							}
+						},
+						{
+							"id": "portraitMobile",
+							"rowViewportDefinition": {}
+						},
+						{
+							"id": "tablet",
+							"rowViewportDefinition": {}
+						}
+					],
+					"verticalAlignment": "top"
+				},
+				"pageElements": [
+					{
+						"definition": {
+							"columnViewports": [
+								{
+									"columnViewportDefinition": {
+										"size": 12
+									},
+									"id": "landscapeMobile"
+								},
+								{
+									"columnViewportDefinition": {},
+									"id": "portraitMobile"
+								},
+								{
+									"columnViewportDefinition": {},
+									"id": "tablet"
+								}
+							],
+							"size": 4
+						},
+						"type": "Column"
+					},
+					{
+						"definition": {
+							"columnViewports": [
+								{
+									"columnViewportDefinition": {
+										"size": 12
+									},
+									"id": "landscapeMobile"
+								},
+								{
+									"columnViewportDefinition": {},
+									"id": "portraitMobile"
+								},
+								{
+									"columnViewportDefinition": {},
+									"id": "tablet"
+								}
+							],
+							"size": 4
+						},
+						"pageElements": [
+							{
+								"definition": {
+									"widgetInstance": {
+										"widgetConfig": {},
+										"widgetName": "com_liferay_commerce_product_content_web_internal_portlet_CPContentPortlet"
+									}
+								},
+								"type": "Widget"
+							}
+						],
+						"type": "Column"
+					},
+					{
+						"definition": {
+							"columnViewports": [
+								{
+									"columnViewportDefinition": {
+										"size": 12
+									},
+									"id": "landscapeMobile"
+								},
+								{
+									"columnViewportDefinition": {},
+									"id": "portraitMobile"
+								},
+								{
+									"columnViewportDefinition": {},
+									"id": "tablet"
+								}
+							],
+							"size": 4
+						},
+						"type": "Column"
+					}
+				],
+				"type": "Row"
+			},
+			{
+				"definition": {
+					"indexed": true,
+					"layout": {
+						"widthType": "Fixed"
+					}
+				},
+				"type": "Section"
+			}
+		],
+		"type": "Root"
+	},
+	"settings": {
+		"colorSchemeName": "01",
+		"masterPage": {
+			"key": "primary"
+		},
+		"themeName": "Classic"
+	}
+}

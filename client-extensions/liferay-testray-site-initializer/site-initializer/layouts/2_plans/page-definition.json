@@ -1,0 +1,52 @@
+{
+	"pageElement": {
+		"pageElements": [
+			{
+				"definition": {
+					"fragmentStyle": {
+						"hidden": true
+					},
+					"widgetInstance": {
+						"widgetConfig": {
+							"federatedSearchKey": "",
+							"allowEmptySearches": "true",
+							"basicFacetSelection": "false"
+						},
+						"widgetName": "com_liferay_portal_search_web_search_options_portlet_SearchOptionsPortlet"
+					}
+				},
+				"type": "Widget"
+			},
+			{
+				"definition": {
+					"indexed": true,
+					"layout": {
+						"contentDisplay": "FlexRow",
+						"justify": "Center",
+						"widthType": "Fixed"
+					}
+				},
+				"pageElements": [
+					{
+						"definition": {
+							"widgetInstance": {
+								"widgetConfig": {},
+								"widgetName": "com_liferay_commerce_product_content_search_web_internal_portlet_CPSearchResultsPortlet"
+							}
+						},
+						"type": "Widget"
+					}
+				],
+				"type": "Section"
+			}
+		],
+		"type": "Root"
+	},
+	"settings": {
+		"colorSchemeName": "01",
+		"masterPage": {
+			"key": "primary"
+		},
+		"themeName": "Classic"
+	}
+}

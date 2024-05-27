@@ -1,0 +1,20 @@
+[
+	{
+		"cpDefinitionExternalReferenceCode": "LUG1",
+		"cpInstanceProperties": [
+			{
+				"cpInstanceSku": "BASIC",
+				"propertyType": "PRICE",
+				"skuPrice": 5,
+				"skuPromoPrice": 5
+			},
+			{
+				"cpInstanceSku": "STANDARD",
+				"propertyType": "PRICE",
+				"skuPrice": 10,
+				"skuPromoPrice": 10
+			}
+		],
+		"optionKey": "lug-option"
+	}
+]
