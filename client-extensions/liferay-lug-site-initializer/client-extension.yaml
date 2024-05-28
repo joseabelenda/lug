@@ -1,13 +1,14 @@
-liferay-testray-site-initializer:
+liferay-lug-site-initializer:
     name: LUG Site Initializer
     oAuthApplicationHeadlessServer: lug-site-initializer-oauth-application-headless-server
     siteExternalReferenceCode: LUG
     siteName: RayStream
     type: siteInitializer
-liferay-testray-site-initializer-oauth-application-headless-server:
-    .serviceAddress: localhost:8080
-    .serviceScheme: http
+liferay-lug-site-initializer-oauth-application-headless-server:
+    .serviceAddress: uat-lctlxcnilton.us.demo.lxc.liferay.com
+    .serviceScheme: https
     name: LUG OAuth Application Headless Server
     scopes:
         - Liferay.Headless.Site.everything
     type: oAuthApplicationHeadlessServer
+    userAccountScreenName: default-service-account
