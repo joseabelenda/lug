@@ -22,7 +22,7 @@
 				"en_US": "Author"
 			},
 			"localized": false,
-			"name": "creator",
+			"name": "author",
 			"readOnly": "true",
 			"required": false,
 			"state": false,
@@ -239,6 +239,39 @@
 			"state": false,
 			"system": false,
 			"type": "String"
+		},
+		{
+			"DBType": "Long",
+			"businessType": "Attachment",
+			"indexed": true,
+			"indexedAsKeyword": false,
+			"indexedLanguageId": "en_US",
+			"label": {
+				"en_US": "Poster"
+			},
+			"listTypeDefinitionId": 0,
+			"localized": false,
+			"name": "poster",
+			"objectFieldSettings": [
+				{
+					"name": "acceptedFileExtensions",
+					"value": "jpeg, jpg, pdf, png"
+				},
+				{
+					"name": "maximumFileSize",
+					"value": 100
+				},
+				{
+					"name": "fileSource",
+					"value": "documentsAndMedia"
+				}
+			],
+			"readOnly": "false",
+			"required": false,
+			"state": false,
+			"system": false,
+			"type": "Long",
+			"unique": false
 		}
 	],
 	"panelCategoryKey": "control_panel.object",
