@@ -1,0 +1,26 @@
+[
+	{
+		"cpDefinitionExternalReferenceCode": "RAY1",
+		"cpInstanceProperties": [
+			{
+				"cpInstanceSku": "BASIC",
+				"propertyType": "UPDATE_PRICE",
+				"skuPrice": 5,
+				"skuPromoPrice": 5
+			},
+			{
+				"cpInstanceSku": "STANDARD",
+				"propertyType": "UPDATE_PRICE",
+				"skuPrice": 10,
+				"skuPromoPrice": 10
+			},
+			{
+				"cpInstanceSku": "PREMIUM",
+				"propertyType": "UPDATE_PRICE",
+				"skuPrice": 15,
+				"skuPromoPrice": 15
+			}
+		],
+		"optionKey": "plan"
+	}
+]

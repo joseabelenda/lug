@@ -38,27 +38,34 @@ public class ObjectAction1RestController extends BaseRestController {
 
 	@PostMapping
 	public ResponseEntity<String> post(
-		@AuthenticationPrincipal Jwt jwt, @RequestBody String json) {
+			@AuthenticationPrincipal Jwt jwt, @RequestBody String json) {
 
 		JSONObject jsonObject = new JSONObject(json);
+
+		System.out.println("jsonObject: " + jsonObject);
+
+		int paymentStatus = jsonObject.getInt("paymentStatus");
+
+		if (paymentStatus != 0) {
+			return new ResponseEntity<>(json, HttpStatus.OK);
+		}
 
 		long commerceOrderId = jsonObject.getLong("commerceOrderId");
 
 		JSONObject commerceOrderItemsJSONObject = _getCommerceOrderItems(
-			commerceOrderId, jwt);
+				commerceOrderId, jwt);
 
-		JSONArray orderItemsJSONArray =
-			commerceOrderItemsJSONObject.getJSONArray("items");
+		JSONArray orderItemsJSONArray = commerceOrderItemsJSONObject.getJSONArray("items");
 
 		JSONObject commerceOrderJSONObject = jsonObject.getJSONObject(
-			"commerceOrder");
+				"commerceOrder");
 
 		String creatorEmailAddress = commerceOrderJSONObject.getString(
-			"creatorEmailAddress");
+				"creatorEmailAddress");
 
 		if (orderItemsJSONArray != null) {
 			JSONObject orderItemJSONObject = orderItemsJSONArray.getJSONObject(
-				0);
+					0);
 
 			if (orderItemJSONObject != null) {
 				String sku = orderItemJSONObject.getString("sku");
@@ -70,21 +77,22 @@ public class ObjectAction1RestController extends BaseRestController {
 
 					if (sku.equals("BASIC")) {
 						organizationId = _getOrganizationId("BASIC", jwt);
-					}
-					else if (sku.equals("PREMIUM")) {
+					} else if (sku.equals("STANDARD")) {
+						organizationId = _getOrganizationId("STANDARD", jwt);
+					} else if (sku.equals("PREMIUM")) {
 						organizationId = _getOrganizationId("PREMIUM", jwt);
 					}
 
 					long finalOrganizationId = organizationId;
 
 					_post(
-						null, jwt,
-						uriBuilder -> uriBuilder.path(
-							"o/headless-admin-user/v1.0/organizations/" +
-								finalOrganizationId +
-									"/user-accounts/by-email-address/" +
-										creatorEmailAddress
-						).build());
+							null, jwt,
+							uriBuilder -> uriBuilder.path(
+									"o/headless-admin-user/v1.0/organizations/" +
+											finalOrganizationId +
+											"/user-accounts/by-email-address/" +
+											creatorEmailAddress)
+									.build());
 				}
 			}
 		}
@@ -94,83 +102,75 @@ public class ObjectAction1RestController extends BaseRestController {
 
 	private JSONObject _get(Function<UriBuilder, URI> uriFunction, Jwt jwt) {
 		return new JSONObject(
-			_getWebClient(
-			).get(
-			).uri(
-				uriBuilder -> uriFunction.apply(uriBuilder)
-			).accept(
-				MediaType.APPLICATION_JSON
-			).header(
-				HttpHeaders.AUTHORIZATION, "Bearer " + jwt.getTokenValue()
-			).retrieve(
-			).bodyToMono(
-				String.class
-			).block());
+				_getWebClient().get().uri(
+						uriBuilder -> uriFunction.apply(uriBuilder)).accept(
+								MediaType.APPLICATION_JSON)
+						.header(
+								HttpHeaders.AUTHORIZATION, "Bearer " + jwt.getTokenValue())
+						.retrieve().bodyToMono(
+								String.class)
+						.block());
 	}
 
 	private JSONObject _getCommerceOrderItems(long commerceOrderId, Jwt jwt) {
 		return _get(
-			uriBuilder -> uriBuilder.path(
-				"/o/headless-commerce-admin-order/v1.0/orders/" +
-					commerceOrderId + "/orderItems"
-			).queryParam(
-				"page", "1"
-			).queryParam(
-				"pageSize", "-1"
-			).build(),
-			jwt);
+				uriBuilder -> uriBuilder.path(
+						"/o/headless-commerce-admin-order/v1.0/orders/" +
+								commerceOrderId + "/orderItems")
+						.queryParam(
+								"page", "1")
+						.queryParam(
+								"pageSize", "-1")
+						.build(),
+				jwt);
 	}
 
-	private long _getOrganizationId(String externalReferenceCode, Jwt jwt) {
+	private long _getOrganizationId(String name, Jwt jwt) {
 		JSONObject jsonObject = _get(
-			uriBuilder -> uriBuilder.path(
-				"/o/headless-admin-user/v1.0/organizations/by-external-reference-code/" +
-					externalReferenceCode
-			).queryParam(
-				"page", "1"
-			).queryParam(
-				"pageSize", "-1"
-			).build(),
-			jwt);
+				uriBuilder -> uriBuilder.path(
+						"o/headless-admin-user/v1.0/organizations?flatten=true&filter=name eq '" + name + "'")
+						.queryParam(
+								"page", "1")
+						.queryParam(
+								"pageSize", "-1")
+						.build(),
+				jwt);
 
-		return jsonObject.getLong("id");
+		System.out.println("jsonObject: " + jsonObject);
+
+		JSONArray jsonArray = jsonObject.getJSONArray("items");
+
+		JSONObject jsonObject2 = jsonArray.getJSONObject(0);
+
+		return jsonObject2.getLong("id");
 	}
 
 	private WebClient _getWebClient() {
-		return WebClient.builder(
-		).baseUrl(
-			lxcDXPServerProtocol + "://" + lxcDXPMainDomain
-		).exchangeStrategies(
-			ExchangeStrategies.builder(
-			).codecs(
-				clientCodecConfigurer -> clientCodecConfigurer.defaultCodecs(
-				).maxInMemorySize(
-					5 * 1024 * 1024
-				)
-			).build()
-		).build();
+		return WebClient.builder().baseUrl(
+				lxcDXPServerProtocol + "://" + lxcDXPMainDomain).exchangeStrategies(
+						ExchangeStrategies.builder().codecs(
+								clientCodecConfigurer -> clientCodecConfigurer.defaultCodecs().maxInMemorySize(
+										5 * 1024 * 1024))
+								.build())
+				.build();
 	}
 
 	private void _post(
-		Object bodyValue, Jwt jwt, Function<UriBuilder, URI> uriFunction) {
+			Object bodyValue, Jwt jwt, Function<UriBuilder, URI> uriFunction) {
 
-		_getWebClient(
-		).post(
-		).uri(
-			uriBuilder -> uriFunction.apply(uriBuilder)
-		).accept(
-			MediaType.APPLICATION_JSON
-		).contentType(
-			MediaType.APPLICATION_JSON
-		).header(
-			HttpHeaders.AUTHORIZATION, "Bearer " + jwt.getTokenValue()
-		).retrieve(
-		).bodyToMono(
-			Void.class
-		).block();
+		_getWebClient().post().uri(
+				uriBuilder -> uriFunction.apply(uriBuilder)).accept(
+						MediaType.APPLICATION_JSON)
+				.contentType(
+						MediaType.APPLICATION_JSON)
+				.header(
+						HttpHeaders.AUTHORIZATION, "Bearer " + jwt.getTokenValue())
+				.retrieve().bodyToMono(
+						Void.class)
+				.block();
 	}
 
 	private static final Log _log = LogFactory.getLog(
-		ObjectAction1RestController.class);
+			ObjectAction1RestController.class);
 
 }

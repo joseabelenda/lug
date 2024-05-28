@@ -1,0 +1,18 @@
+[
+	{
+		"childOrganizations": [
+			{
+				"childOrganizations": [
+					{
+						"externalReferenceCode": "BASIC",
+						"name": "Basic"
+					}
+				],
+				"externalReferenceCode": "STANDARD",
+				"name": "Standard"
+			}
+		],
+		"externalReferenceCode": "PREMIUM",
+		"name": "Premium"
+	}
+]

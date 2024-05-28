@@ -1,0 +1,17 @@
+[
+	{
+		"backOrders": false,
+		"description": "Combines coverage for all major property and liability risks into one insurance policy.",
+		"displayAvailability": false,
+		"displayStockQuantity": false,
+		"externalReferenceCode": "RAY1",
+		"height": 2,
+		"length": 7,
+		"minStockQuantity": 5,
+		"name": "Plan",
+		"shippable": true,
+		"sku": "RAY1",
+		"taxCategory": "Normal Product",
+		"warehouse1": 1000
+	}
+]

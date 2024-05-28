@@ -10,7 +10,7 @@ lug-spring-boot-oauth-application-user-agent:
         - Liferay.Headless.Commerce.Admin.Order.everything
     type: oAuthApplicationUserAgent
 lug-spring-boot-object-action-order-status-update:
-    name: Lug Spring Boot Object Action Orde Status Update
+    name: Lug Spring Boot Object Action Order Status Update
     oAuth2ApplicationExternalReferenceCode: lug-spring-boot-oauth-application-user-agent
     resourcePath: /lug/order/status/update
     type: objectAction
